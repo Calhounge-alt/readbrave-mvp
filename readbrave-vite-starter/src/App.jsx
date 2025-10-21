@@ -4,14 +4,47 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 // --- Minimal data ---
 const AVATARS = [
   { id: "benjamin", name: "Benjamin", emoji: "🧢" },
-  { id: "ruby", name: "Ruby", emoji: "🎒" },
-  { id: "joshua", name: "Joshua", emoji: "🧩" },
-  
+  { id: "ruby",     name: "Ruby",     emoji: "🎒" },
+  { id: "joshua",   name: "Joshua",   emoji: "🧩" },
+];
+
 const STICKERS = [
   { id: "star_shades", name: "Star Shades", emoji: "🕶️", cost: 25, rarity: "common" },
   { id: "rainbow_hat", name: "Rainbow Hat", emoji: "🎩", cost: 40, rarity: "rare" },
   { id: "music_notes", name: "Music Notes", emoji: "🎵", cost: 30, rarity: "common" },
-  { id: "magic_wand", name: "Magic Wand", emoji: "🪄", cost: 35, rarity: "epic", limited: { start: "2025-10-01", end: "2025-11-15" } },
+  { id: "magic_wand",  name: "Magic Wand",  emoji: "🪄", cost: 35, rarity: "epic",
+    limited: { start: "2025-10-01", end: "2025-11-15" } },
+];
+
+// --- Minimal data ---
+const AVATARS = [
+  { id: "benjamin", name: "Benjamin", emoji: "🧢" },
+  { id: "ruby",     name: "Ruby",     emoji: "🎒" },
+  { id: "joshua",   name: "Joshua",   emoji: "🧩" },
+];
+
+const STICKERS = [
+  { id: "star_shades", name: "Star Shades", emoji: "🕶️", cost: 25, rarity: "common" },
+  { id: "rainbow_hat", name: "Rainbow Hat", emoji: "🎩", cost: 40, rarity: "rare" },
+  { id: "music_notes", name: "Music Notes", emoji: "🎵", cost: 30, rarity: "common" },
+  { id: "magic_wand",  name: "Magic Wand",  emoji: "🪄", cost: 35, rarity: "epic",
+    limited: { start: "2025-10-01", end: "2025-11-15" } },
+];
+
+
+// --- Minimal data ---
+const AVATARS = [
+  { id: "benjamin", name: "Benjamin", emoji: "🧢" },
+  { id: "ruby",     name: "Ruby",     emoji: "🎒" },
+  { id: "joshua",   name: "Joshua",   emoji: "🧩" },
+];
+
+const STICKERS = [
+  { id: "star_shades", name: "Star Shades", emoji: "🕶️", cost: 25, rarity: "common" },
+  { id: "rainbow_hat", name: "Rainbow Hat", emoji: "🎩", cost: 40, rarity: "rare" },
+  { id: "music_notes", name: "Music Notes", emoji: "🎵", cost: 30, rarity: "common" },
+  { id: "magic_wand",  name: "Magic Wand",  emoji: "🪄", cost: 35, rarity: "epic",
+    limited: { start: "2025-10-01", end: "2025-11-15" } },
 ];
 
 const QUESTS = [
