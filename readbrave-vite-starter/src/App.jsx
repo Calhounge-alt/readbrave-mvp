@@ -6,8 +6,7 @@ const AVATARS = [
   { id: "benjamin", name: "Benjamin", emoji: "🧢" },
   { id: "ruby", name: "Ruby", emoji: "🎒" },
   { id: "joshua", name: "Joshua", emoji: "🧩" },
-];
-
+  
 const STICKERS = [
   { id: "star_shades", name: "Star Shades", emoji: "🕶️", cost: 25, rarity: "common" },
   { id: "rainbow_hat", name: "Rainbow Hat", emoji: "🎩", cost: 40, rarity: "rare" },
@@ -23,12 +22,15 @@ const QUESTS = [
 
 const SKILLS = { magic_e:{id:"magic_e",name:"Magic-e"}, ai_ay:{id:"ai_ay",name:"AI/AY"} };
 const PASSAGES = [
-  { id:"p1", title:"Train in the Rain", body:["The train went on a long trip in the rain.","Jay will wait by the gray gate and wave.","We will play a game on the train today."], target_skills:["ai_ay","magic_e"],
-    phrases:["The train","went on a long trip","in the rain","Jay will wait","by the gray gate","and wave","We will play a game","on the train today"] },
-  { id:"p2", title:"Home Time", body:["At home we bake a pie and take time to play.","I wrote a note to say I love today."], target_skills:["magic_e"],
-    phrases:["At home we bake a pie","and take time to play","I wrote a note","to say I love today"] },
+  const PASSAGES = [
+  { id:"p1", title:"Train in the Rain", body:[ ... ] },
+  { id:"p2", title:"Home Time", body:[ ... ] },
+  { id:"p3", title:"Skate at the Lake", body:[ ... ] },
+  { id:"p4", title:"Blend Friends", body:[ ... ] },
+  { id:"p5", title:"Magic-e Time", body:[ ... ] }
 ];
-const PHONEME_MAP = { ai:"eɪ", ay:"eɪ", a_e:"eɪ", i_e:"aɪ", o_e:"oʊ" };
+  
+const PHONEME_MAP = { ai:"ei", ay:"ei", a_e:"ei", i_e:"ai", o_e:"oo" };
 const IPA_LOOKUP  = { train:"/t r eɪ n/", rain:"/r eɪ n/", day:"/d eɪ/" };
 
 const tokenize = (lines)=>{
