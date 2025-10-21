@@ -56,8 +56,7 @@ const makePhrasesFromBody = (body)=> (Array.isArray(body)?body:[String(body||"")
 const speak = (text, rate=1, voice)=>{ try{ const u=new SpeechSynthesisUtterance(String(text).replace(/\*\*/g,"")); if(voice) u.voice=voice; u.rate=rate; window.speechSynthesis?.cancel?.(); window.speechSynthesis?.speak?.(u);}catch{} };
 
 export default function App(){
-  const [view,setView]=useState("reader");
-  const [selectedPassageId,setSelectedPassageId]=useState(PASSAGES[0].id);
+  const [view,setView]=useState("reader")
   const [wpm,setWpm]=useState(140);
   const [ttsRate,setTtsRate]=useState(1);
   const [voice,setVoice]=useState(null);
@@ -67,6 +66,9 @@ export default function App(){
   const [equipped,setEquipped]=useState(()=>JSON.parse(localStorage.getItem("rb_eq")||"[]"));
   const [questProgress,setQuestProgress]=useState(()=>JSON.parse(localStorage.getItem("rb_quests_prog")||"{}"));
   const [questClaimed,setQuestClaimed]=useState(()=>JSON.parse(localStorage.getItem("rb_quests_claim")||"{}"));
+  // Add passage selector state
+const [selectedPassageId, setSelectedPassageId] = useState(PASSAGES[0].id);
+const passage = useMemo(() => PASSAGES.find(p => p.id === selectedPassageId) || PASSAGES[0], [selectedPassageId]);
 
   useEffect(()=>{ const onVoices=()=>{const vs=window.speechSynthesis?.getVoices?.()||[]; setVoice(vs.find(v=>/en-?US|English/i.test(v.lang))||vs[0]||null);}; onVoices(); window.speechSynthesis?.addEventListener?.("voiceschanged",onVoices); return ()=>window.speechSynthesis?.removeEventListener?.("voiceschanged",onVoices); },[]);
 
@@ -131,6 +133,27 @@ export default function App(){
             <input type="range" min={80} max={220} value={wpm} onChange={e=>setWpm(+e.target.value)} />
           </div>
         )}
+        {/* Study Selector */}
+<div style={{maxWidth: "72rem", margin: "8px auto 0", padding: "0 16px"}}>
+  <div style={{display: "flex", gap: 8, alignItems: "center"}}>
+    <div style={{fontSize: 12, color: "#64748b"}}>Study</div>
+    <select
+      value={selectedPassageId}
+      onChange={(e) => setSelectedPassageId(e.target.value)}
+      style={{
+        padding: "6px 10px",
+        border: "1px solid #cbd5e1",
+        borderRadius: 12,
+        background: "white"
+      }}
+    >
+      {PASSAGES.map(p => (
+        <option key={p.id} value={p.id}>{p.title}</option>
+      ))}
+    </select>
+  </div>
+</div>
+
       </main>
 
       {!!openLens && <LensModal word={openLens.word} onClose={()=>setOpenLens(null)} ttsRate={ttsRate} voice={voice} />}
