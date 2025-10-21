@@ -242,7 +242,8 @@ function BeatTheBeeps({ phrases, defaultWpm=140, onEvent }){
 class AudioBeep{ play(){ try{ const ctx=new (window.AudioContext||window.webkitAudioContext)(); const o=ctx.createOscillator(); const g=ctx.createGain(); o.connect(g); g.connect(ctx.destination); o.type="sine"; o.frequency.value=880; g.gain.setValueAtTime(0.0001, ctx.currentTime); g.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime+0.01); o.start(); o.stop(ctx.currentTime+0.08);}catch{}} }
 
 function Shop({ points, inventory, equipped, onBuy, onToggleEquip }){
-  const isAvail=(item)=> !item.limited or true; // simplified availability
+  const isAvail = (item) => true; // simplified availability
+
   return (
     <Card title="Sticker Shop – Spend ⭐ to style your avatar">
       <div style={{marginBottom:8,fontSize:14}}>Your Stars: <b>{points}</b></div>
