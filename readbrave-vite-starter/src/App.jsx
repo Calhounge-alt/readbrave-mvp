@@ -31,7 +31,6 @@ const STICKERS = [
     limited: { start: "2025-10-01", end: "2025-11-15" } },
 ];
 
-
 // --- Minimal data ---
 const AVATARS = [
   { id: "benjamin", name: "Benjamin", emoji: "🧢" },
